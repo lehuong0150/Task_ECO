@@ -14,13 +14,13 @@ fun filterEmployees(
 fun demoHigherFunction(){
     println("List Developer: ")
     val developerList = filterEmployees(getList(Employee::class)){
-            it->it.type is RoleSealClass.Developer
+            it.type is RoleSealClass.Developer
     }
     println(developerList)
 
     println("List Tester: ")
     val testerList = filterEmployees(getList(Employee:: class)){
-            it -> it.type is RoleSealClass.Tester
+             it.type is RoleSealClass.Tester
     }
     println(testerList)
 }

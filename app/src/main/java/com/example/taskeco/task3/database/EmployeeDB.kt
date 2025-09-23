@@ -7,6 +7,7 @@ import com.example.taskeco.task3.model.users.Manager
 import com.example.taskeco.task3.demo.LanguageEnum
 import com.example.taskeco.task3.demo.RoleSealClass
 import com.example.taskeco.task3.demo.addUniqueItem
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
@@ -25,6 +26,7 @@ object EmployeeDB {
 
     private suspend fun initEmployee() {
         // thêm vài employee mẫu
+        delay(500L)
         val e1 = Employee(
             id = "E001",
             name = "Le Ngoc Lan Anh",
@@ -66,6 +68,7 @@ object EmployeeDB {
     }
 
     private suspend fun initManager() {
+        delay(500L)
         val m1 = Manager(
             id = "M001",
             name = "Vu Hai Hung",

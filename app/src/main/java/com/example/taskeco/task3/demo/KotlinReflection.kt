@@ -1,5 +1,8 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package com.example.taskeco.task3.demo
 
+import com.example.taskeco.task3.database.EmployeeDB
 import com.example.taskeco.task3.database.EmployeeDB.employeeList
 import com.example.taskeco.task3.database.EmployeeDB.managerList
 import com.example.taskeco.task3.model.users.Employee
@@ -19,4 +22,16 @@ fun <T : Any> getList(type: KClass<T>): MutableList<T> {
 
         else -> throw IllegalStateException("Not found type!!!!!")
     }
+}
+
+fun demoKotlinReflection(){
+
+    //ung dung KotlinReflection
+    println("List Manager: ")
+    val managerList = getList(Manager::class)
+    println(managerList)
+
+    println("List Employee: ")
+    val employeeList = getList(Employee::class)
+    println(employeeList)
 }

@@ -7,7 +7,7 @@ class Manager(
     name: String,
     email: String,
     phone: String,
-    private val teamSize: Int,
+    internal val teamSize: Int,
 ) : Person(id, name, email, phone), Identifiable {
     override fun getRole(): String {
         return "Manager"
