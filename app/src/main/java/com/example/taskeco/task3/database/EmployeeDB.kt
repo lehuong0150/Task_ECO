@@ -1,5 +1,3 @@
-@file:Suppress("UNCHECKED_CAST")
-
 package com.example.taskeco.task3.database
 
 import com.example.taskeco.task3.model.users.Employee
@@ -7,32 +5,26 @@ import com.example.taskeco.task3.model.users.Manager
 import com.example.taskeco.task3.demo.LanguageEnum
 import com.example.taskeco.task3.demo.RoleSealClass
 import com.example.taskeco.task3.demo.addUniqueItem
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import com.example.taskeco.task3.demo.address
+import com.example.taskeco.task3.model.address.Address
 
 object EmployeeDB {
     val employeeList = mutableListOf<Employee>()
     val managerList = mutableListOf<Manager>()
 
-    fun initData() = runBlocking {
-        launch {
-            initEmployee()
-        }
-        launch {
-            initManager()
-        }
+    init {
+        initEmployee()
+        initManager()
     }
 
-    private suspend fun initEmployee() {
+    private fun initEmployee() {
         // thêm vài employee mẫu
-        delay(500L)
         val e1 = Employee(
             id = "E001",
             name = "Le Ngoc Lan Anh",
             email = "anhlan12@example.com",
             phone = "0901234567",
-            address = "Hà Nội",
+            address = Address(),
             type = RoleSealClass.Developer(LanguageEnum.KOTLIN)
         )
         val e2 = Employee(
@@ -40,7 +32,14 @@ object EmployeeDB {
             name = "Nguyen Hoang Long",
             email = "long34@example.com",
             phone = "0902345678",
-            address = "Hải Phòng",
+            address = address {
+                district = "Le Chan"
+                city = "Hai Phong"
+                detailAddress {
+                    stress = "Tran Phú"
+                    describe = "No. 12, Lane 11"
+                }
+            },
             type = RoleSealClass.Tester(true)
         )
         val e3 = Employee(
@@ -48,7 +47,14 @@ object EmployeeDB {
             name = "Nguyen Van Ha",
             email = "charlie@example.com",
             phone = "0903456789",
-            address = "Đà Nẵng",
+            address = address {
+                district = "Hac Thanh"
+                city = "Thanh Hoa"
+                detailAddress {
+                    stress = "Tran Phú"
+                    describe = "No. 15"
+                }
+            },
             type = RoleSealClass.Developer(LanguageEnum.JAVA)
         )
         val e4 = Employee(
@@ -56,7 +62,14 @@ object EmployeeDB {
             name = "Luong Thi Trang",
             email = "tranglt@example.com",
             phone = "0903459989",
-            address = "Nam Dinh",
+            address = address {
+                district = "Hai Tien"
+                city = "Nam Dinh"
+                detailAddress {
+                    stress = "Tran Phú"
+                    describe = "No. 12, Lane 81"
+                }
+            },
             type = RoleSealClass.Developer(LanguageEnum.PYTHON)
         )
 
@@ -64,11 +77,9 @@ object EmployeeDB {
         addUniqueItem(employeeList, e2)
         addUniqueItem(employeeList, e3)
         addUniqueItem(employeeList, e4)
-
     }
 
-    private suspend fun initManager() {
-        delay(500L)
+    private fun initManager() {
         val m1 = Manager(
             id = "M001",
             name = "Vu Hai Hung",

@@ -3,13 +3,14 @@ package com.example.taskeco.task3.model.users
 import com.example.taskeco.task3.model.Identifiable
 import com.example.taskeco.task3.model.Workable
 import com.example.taskeco.task3.demo.RoleSealClass
+import com.example.taskeco.task3.model.address.Address
 
 open class Employee(
-    override var id: String,
+    id: String,
     name: String,
     email: String,
     phone: String,
-    private val address: String,
+    private val address: Address,
     internal val type: RoleSealClass
 ) : Person(id, name, email, phone), Workable, Identifiable {
     override fun getRole(): String {
@@ -17,7 +18,7 @@ open class Employee(
     }
 
     override fun work() {
-        TODO("Not yet implemented")
+        describe()
     }
 
     private fun describe() = when (type) {
@@ -29,6 +30,7 @@ open class Employee(
                 "$name has not finished testing the task yet!"
             }
         }
+
         else -> "Not found type!!!!"
     }
 

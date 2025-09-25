@@ -3,7 +3,7 @@ package com.example.taskeco.task3.model.users
 import com.example.taskeco.task3.model.Identifiable
 
 class Manager(
-    override var id: String,
+    id: String,
     name: String,
     email: String,
     phone: String,

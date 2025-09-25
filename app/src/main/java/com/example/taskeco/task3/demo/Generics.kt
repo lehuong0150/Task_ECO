@@ -6,7 +6,6 @@ import com.example.taskeco.task3.model.Identifiable
 import com.example.taskeco.task3.model.users.Employee
 import com.example.taskeco.task3.model.users.Manager
 
-//Demo generic
 fun <T : Identifiable> addUniqueItem(list: MutableList<T>, item: T): Boolean {
     return if (list.none { it.id == item.id }) {
         list.add(item)
@@ -28,14 +27,18 @@ fun demoGenerics() {
         name = "Huynh Vu Thao Trang",
         email = "tranglt@example.com",
         phone = "0903459989",
-        address = "Ha Tinh",
+        address = address {
+            district = "Cau Giay"
+            city = "Ha Noi"
+            detailAddress {
+                stress = "Quan Hoa"
+                describe = "No. 235"
+            }
+        },
         type = RoleSealClass.Developer(LanguageEnum.PYTHON)
     )
     addUniqueItem(managerList, m1)
     addUniqueItem(employeeList, e1)
-    println("List Employee after add: \n"+ getList(Employee::class))
-    println("List Manager after add: \n"+ getList(Manager::class))
-
-
-
+    println("List Employee after add: \n" + getList(Employee::class))
+    println("List Manager after add: \n" + getList(Manager::class))
 }

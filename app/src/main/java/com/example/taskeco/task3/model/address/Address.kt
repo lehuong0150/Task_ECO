@@ -1,6 +1,7 @@
-package com.example.taskeco.task3.model
+package com.example.taskeco.task3.model.address
 
 data class Address(
-    var street: String = "Nguyen Chi Thanh street",
-    var city: String ="Ha Noi city"
+    var district: String = "Dong Da",
+    var city: String = "Ha Noi",
+    var detailAddress: DetailAddress? = null
 )

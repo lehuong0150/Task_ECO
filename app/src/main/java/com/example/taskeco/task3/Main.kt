@@ -1,27 +1,32 @@
 package com.example.taskeco.task3
 
-import com.example.taskeco.task3.database.EmployeeDB
-import com.example.taskeco.task3.database.EmployeeDB.managerList
-import com.example.taskeco.task3.demo.addUniqueItem
+import com.example.taskeco.task3.demo.demoDomainSpecificLanguage
 import com.example.taskeco.task3.demo.demoGenerics
 import com.example.taskeco.task3.demo.demoHigherFunction
+import com.example.taskeco.task3.demo.demoInline
 import com.example.taskeco.task3.demo.demoKotlinReflection
-import com.example.taskeco.task3.demo.getList
-import com.example.taskeco.task3.model.users.Employee
-import com.example.taskeco.task3.model.users.Manager
+import com.example.taskeco.task3.demo.demoLambdaExpression
 
 
-fun main(){
-    EmployeeDB.initData()
-    println("--------- Demo HigherFunction---------- ")
+fun main() {
+
+    println("\n--------- Demo HigherFunction----------")
     demoHigherFunction()
 
-    println("--------- Demo KotlinReflection---------- ")
+    println("\n--------- Demo Lambda Expression---------")
+    demoLambdaExpression()
+
+    println("\n--------- Demo KotlinReflection---------- ")
     demoKotlinReflection()
 
-    println("--------- Demo Generics---------- ")
+    println("\n--------- Demo Generics---------- ")
     demoGenerics()
 
+    println("\n--------- Demo Inline--------------")
+    demoInline()
+
+    println("\n--------- Demo Domain Specific Language-------------")
+    demoDomainSpecificLanguage()
 
 }
 
