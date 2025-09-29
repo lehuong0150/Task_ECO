@@ -7,7 +7,6 @@ import com.example.taskeco.task3.demo.demoInline
 import com.example.taskeco.task3.demo.demoKotlinReflection
 import com.example.taskeco.task3.demo.demoLambdaExpression
 
-
 fun main() {
 
     println("\n--------- Demo HigherFunction----------")
@@ -27,7 +26,6 @@ fun main() {
 
     println("\n--------- Demo Domain Specific Language-------------")
     demoDomainSpecificLanguage()
-
 }
 
 
